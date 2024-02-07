@@ -8,7 +8,7 @@ use Symfony\Component\HttpFoundation\Request as SymfonyRequest;
 /**
  * Class AddTestingSupportForInclude
  * @package EllipseSynergie\ApiResponse\Testing\Laravel
- * @author Maxime Beaudoin <maxime.beaudoin@ellipse-synergie.com>
+ * @author Maxime Beaudoin <maxime.beaudoin@optania.com>
  */
 trait AddTestingSupportForInclude
 {
@@ -33,8 +33,13 @@ trait AddTestingSupportForInclude
         $this->resetPageContext();
 
         $symfonyRequest = SymfonyRequest::create(
-            $this->currentUri, $method, $parameters,
-            $cookies, $this->filterFiles($files), array_replace($this->serverVariables, $server), $content
+            $this->currentUri,
+            $method,
+            $parameters,
+            $cookies,
+            $this->filterFiles($files),
+            array_replace($this->serverVariables, $server),
+            $content
         );
 
         $request = Request::createFromBase($symfonyRequest);

@@ -12,7 +12,7 @@ use League\Fractal\Manager;
  * file that was distributed with this source code.
  *
  * @package EllipseSynergie\ApiResponse\Laravel
- * @author Maxime Beaudoin <maxime.beaudoin@ellipse-synergie.com>
+ * @author Maxime Beaudoin <maxime.beaudoin@optania.com>
  */
 class LumenServiceProvider extends ServiceProvider
 {
@@ -23,7 +23,7 @@ class LumenServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $manager = new Manager;
+        $manager = new Manager();
 
         // If you have to customize the manager instance, like setting a custom serializer,
         // I strongly suggest you to create your own service provider and add you manager configuration action here

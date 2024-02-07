@@ -16,7 +16,7 @@ use League\Fractal\Resource\Collection;
  * file that was distributed with this source code.
  *
  * @package EllipseSynergie\ApiResponse\Laravel
- * @author Maxime Beaudoin <maxime.beaudoin@ellipse-synergie.com>
+ * @author Maxime Beaudoin <maxime.beaudoin@optania.com>
  */
 class Response extends AbstractResponse
 {
@@ -44,7 +44,7 @@ class Response extends AbstractResponse
     {
         $queryParams = array_diff_key($_GET, array_flip(['page']));
         $paginator->appends($queryParams);
-        
+
         $resource = new Collection($paginator->items(), $transformer, $resourceKey);
         $resource->setPaginator(new IlluminatePaginatorAdapter($paginator));
 

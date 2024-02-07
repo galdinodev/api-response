@@ -13,7 +13,7 @@ use League\Fractal\Manager;
  * file that was distributed with this source code.
  *
  * @package EllipseSynergie\ApiResponse\Laravel
- * @author Maxime Beaudoin <maxime.beaudoin@ellipse-synergie.com>
+ * @author Maxime Beaudoin <maxime.beaudoin@optania.com>
  */
 class ResponseServiceProvider extends ServiceProvider
 {
@@ -45,7 +45,7 @@ class ResponseServiceProvider extends ServiceProvider
      */
     protected function bootResponse()
     {
-        $manager = new Manager;
+        $manager = new Manager();
 
         // Custom serializer because DataArraySerializer doesn't provide the opportunity to change the resource key
         $manager->setSerializer($this->getSerializer());
@@ -54,7 +54,7 @@ class ResponseServiceProvider extends ServiceProvider
         $includes = $this->app['Illuminate\Http\Request']->get('include');
 
         //If includes is not already a array
-        if(!is_array($includes)){
+        if (!is_array($includes)) {
             $includes = explode(',', $includes);
         }
 

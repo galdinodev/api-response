@@ -7,37 +7,41 @@ use League\Fractal\Serializer\ArraySerializer;
 /**
  * Class Serializer
  * @package EllipseSynergie\ApiResponse\Serializer
- * @author Maxime Beaudoin <maxime.beaudoin@ellipse-synergie.com>
+ * @author Maxime Beaudoin <maxime.beaudoin@optania.com>
  */
 class Serializer extends ArraySerializer
 {
-    const RESOURCE_KEY = 'data';
+    public const RESOURCE_KEY = 'data';
 
     /**
      * Serialize a collection.
      *
      * @param string $resourceKey
-     * @param array  $data
+     * @param array $data
      *
      * @return array
      */
-    public function collection($resourceKey, array $data)
+    public function collection(?string $resourceKey, array $data): array
     {
-        if (is_null($resourceKey)) $resourceKey = static::RESOURCE_KEY;
-        return $resourceKey ? [$resourceKey => $data]: $data;
+        if (empty($resourceKey)) {
+            $resourceKey = static::RESOURCE_KEY;
+        }
+        return $resourceKey ? [$resourceKey => $data] : $data;
     }
 
     /**
      * Serialize an item.
      *
      * @param string $resourceKey
-     * @param array  $data
+     * @param array $data
      *
      * @return array
      */
-    public function item($resourceKey, array $data)
+    public function item(?string $resourceKey, array $data): array
     {
-        if (is_null($resourceKey)) $resourceKey = static::RESOURCE_KEY;
-        return $resourceKey ? [$resourceKey => $data]: $data;
+        if (empty($resourceKey)) {
+            $resourceKey = static::RESOURCE_KEY;
+        }
+        return $resourceKey ? [$resourceKey => $data] : $data;
     }
 }
